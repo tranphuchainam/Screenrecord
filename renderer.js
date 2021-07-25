@@ -82,7 +82,7 @@ async function selectSource(source) {
   videoElement.play();
 
   // Create the Media Recorder
-  const options = { mimeType: 'video/webm; codecs=vp9' };
+  const options = { mimeType: 'video/mp4' };
   mediaRecorder = new MediaRecorder(stream, options);
 
   // Register Event Handlers
@@ -101,7 +101,7 @@ function handleDataAvailable(e) {
 // Saves the video file on stop
 async function handleStop(e) {
   const blob = new Blob(recordedChunks, {
-    type: 'video/webm; codecs=vp9'
+    type: 'video/mp4'
   });
 
   const buffer = Buffer.from(await blob.arrayBuffer());
